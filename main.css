@@ -1,31 +1,61 @@
 /* Header Styles */
 header {
-    background-color: #333; /* Dark background */
+    background-color: #6a5acd; /* Dark background */
     color: white; /* White text */
     padding: 10px 0; /* Padding top and bottom */
     text-align: center; /* Center align the content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }
 
 nav ul {
+    display: flex; /* Use flexbox for horizontal alignment */
+    justify-content: center; /* Center the items */
     list-style-type: none; /* Remove bullet points */
     padding: 0;
     margin: 0;
-}
 
 nav ul li {
     display: inline; /* Display items horizontally */
-    margin: 0 10px; /* Add spacing between items */
+    margin: 0 20px; /* Add spacing between items */
 }
 
 nav a {
-    color: white; /* Link color */
     text-decoration: none; /* Remove underlines */
+}
+
+/* Introduction Section Styles */
+#introduction {
+    background-color: #e6e6fa; /* Light purple background */
+    padding: 50px 20px; /* Add padding */
+    text-align: center; /* Center align content */
+}
+
+#introduction h1 {
+    color: #483d8b; /* Dark slate blue */
+    font-size: 2.5em; /* Larger font size */
+    margin-bottom: 20px; /* Add margin below heading */
+}
+
+#introduction p {
+    color: #555; /* Dark gray text */
+    font-size: 1.2em; /* Slightly larger font size */
+    line-height: 1.6; /* Improve readability */
+}
+
+.cta-button {
+    display: inline-block; /* Make it a block-level element */
+    padding: 10px 20px; /* Add padding */
+    background-color: #7b68ee; /* Medium slate blue */
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
 }
 
 /* Footer Styles */
 footer {
-    background-color: #f0f0f0; /* Light gray background */
+    background-color: #778899; /* Light gray background */
     padding: 20px 0; /* Padding top and bottom */
     text-align: center; /* Center align the content */
-    border-top: 1px solid #ccc; /* Add a top border */
+    color: white;
 }
+
