@@ -1,61 +1,191 @@
-/* Header Styles */
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* CSS Variables for easy theme management */
+:root {
+    --primary-color: #00c6ff;
+    --secondary-color: #0072ff;
+    --background-dark: #1a1a2e;
+    --background-light: #16213e;
+    --text-color: #e0e0e0;
+    --header-text: #ffffff;
+    --accent-color: #e94560;
+}
+
+/* General Body Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-dark);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Header & Navigation Styles */
 header {
-    background-color: #6a5acd; /* Dark background */
-    color: white; /* White text */
-    padding: 10px 0; /* Padding top and bottom */
-    text-align: center; /* Center align the content */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    background-color: var(--background-light);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--header-text);
 }
 
 nav ul {
-    display: flex; /* Use flexbox for horizontal alignment */
-    justify-content: center; /* Center the items */
-    list-style-type: none; /* Remove bullet points */
-    padding: 0;
-    margin: 0;
+    list-style: none;
+    display: flex;
+}
 
 nav ul li {
-    display: inline; /* Display items horizontally */
-    margin: 0 20px; /* Add spacing between items */
+    margin-left: 25px;
 }
 
 nav a {
-    text-decoration: none; /* Remove underlines */
+    color: var(--header-text);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
 }
 
-/* Introduction Section Styles */
-#introduction {
-    background-color: #e6e6fa; /* Light purple background */
-    padding: 50px 20px; /* Add padding */
-    text-align: center; /* Center align content */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-in-out;
 }
 
-#introduction h1 {
-    color: #483d8b; /* Dark slate blue */
-    font-size: 2.5em; /* Larger font size */
-    margin-bottom: 20px; /* Add margin below heading */
+nav a:hover {
+    color: var(--primary-color);
 }
 
-#introduction p {
-    color: #555; /* Dark gray text */
-    font-size: 1.2em; /* Slightly larger font size */
-    line-height: 1.6; /* Improve readability */
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section Styles */
+#hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    padding-top: 80px; /* To offset fixed header */
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+}
+
+#hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+#hero p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
 }
 
 .cta-button {
-    display: inline-block; /* Make it a block-level element */
-    padding: 10px 20px; /* Add padding */
-    background-color: #7b68ee; /* Medium slate blue */
-    color: white; /* White text */
-    text-decoration: none; /* Remove underline */
-    border-radius: 5px; /* Rounded corners */
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px; /* Pill shape */
+    font-weight: 600;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+    background-color: #ff5777; /* Lighter accent */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 /* Footer Styles */
 footer {
-    background-color: #778899; /* Light gray background */
-    padding: 20px 0; /* Padding top and bottom */
-    text-align: center; /* Center align the content */
-    color: white;
+    background-color: var(--background-light);
+    color: var(--text-color);
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 2px solid var(--secondary-color);
+}
+
+/* Simple Fade-in Animation */
+.fade-in {
+    animation: fadeInAnimation 1s ease-in forwards;
+    opacity: 0;
+}
+
+#hero h1.fade-in { animation-delay: 0.2s; }
+#hero p.fade-in { animation-delay: 0.4s; }
+#hero .cta-button.fade-in { animation-delay: 0.6s; }
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #hero h1 {
+        font-size: 2.5rem;
+    }
+
+    #hero p {
+        font-size: 1.2rem;
+    }
+
+    header .container {
+        flex-direction: column;
+    }
+
+    nav ul {
+        padding-top: 1rem;
+    }
 }
 
